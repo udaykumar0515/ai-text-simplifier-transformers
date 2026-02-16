@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Streamlit
+.streamlit/
+
+# IDEs
+.vscode/
+.idea/
+
+# Custom Project Files
+*.ppt
+*.pptx
+*.zip
+competition.zip
+store.txt
+test_complex.py
+complex_results.txt
+debug_prompts.py
+debug_output.txt
+repro_issue.py
+ai-text-simplifier-transformers/
