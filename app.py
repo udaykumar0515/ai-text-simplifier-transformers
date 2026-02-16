@@ -18,12 +18,23 @@ if 'input_text' not in st.session_state:
 
 # Callback to load example
 def load_example():
-    st.session_state.input_text = "The utilization of utilizing a complex vocabulary is often considered an indication of intelligence."
+    examples = {
+        "Time Management": "In many circumstances, the implementation of appropriate time management strategies can substantially enhance overall productivity and efficiency.",
+        "Medical": "The patient is exhibiting symptoms consistent with acute rhinitis, including nasal congestion and rhinorrhea.",
+        "Legal": "IN WITNESS WHEREOF, the parties have set their hands and seals on the day and year first above written."
+    }
+    st.session_state.input_text = examples[st.session_state.selected_example]
 
 # UI Layout
 col1, col2 = st.columns([3, 1])
 with col2:
-    st.button("Load Example", on_click=load_example)
+    st.selectbox(
+        "Choose an example:", 
+        options=["Time Management", "Medical", "Legal"], 
+        key="selected_example",
+        label_visibility="collapsed"
+    )
+    st.button("Load Example", on_click=load_example, use_container_width=True)
 
 # Input Area (linked to session handling via key)
 input_text = st.text_area("Enter your text here:", height=200, key="input_text")
