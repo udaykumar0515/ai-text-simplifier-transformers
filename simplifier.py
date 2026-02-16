@@ -51,8 +51,8 @@ def simplify_text(text: str) -> str:
     # try-except block removed to allow proper error handling by caller
     tokenizer, model = load_model()
     
-    # Improved prompt as per audit feedback
-    input_text = "Rewrite the following text in simple English: " + text
+    # Improved prompt as per audit feedback (and verified with difficult input)
+    input_text = "Simplify: " + text
     inputs = tokenizer(input_text, return_tensors="pt", max_length=512, truncation=True)
     
     # Generation parameters as requested
