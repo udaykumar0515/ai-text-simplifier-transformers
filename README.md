@@ -1,26 +1,31 @@
 # AI Text Simplifier
 
-An AI-powered web application that transforms complex text into simple, easy-to-understand language using HuggingFace Transformers.
+A web application that converts complex text into simple, easy-to-understand language using AI-powered natural language processing.
 
-## 🚀 Features
+## Live Demo
 
-- **AI-Powered Simplification**: Uses `google/flan-t5-small` for accurate text simplification.
-- **Clean Interface**: Minimalist and responsive UI built with Streamlit.
-- **Fast & Efficient**: Optimized model loading with caching and warm-up strategies.
-- **Input Validation**: Ensures text is within processing limits for stability.
+[https://ai-text-simplifier.streamlit.app/](https://ai-text-simplifier.streamlit.app/)
 
-## 🛠️ Tech Stack
+## Features
+
+- AI-powered text simplification using HuggingFace Transformers
+- Side-by-side comparison interface
+- Pre-loaded domain-specific examples (Medical, Legal, Academic)
+- Input validation and error handling
+- Efficient model caching for faster performance
+
+## Technology Stack
 
 - **Frontend**: Streamlit
 - **Backend**: HuggingFace Transformers (PyTorch)
-- **Model**: `google/flan-t5-small`
+- **Model**: google/flan-t5-small
 - **Language**: Python 3.8+
 
-## 📦 Installation
+## Installation
 
 1. Clone the repository:
    ```bash
-   git clone REPO_LINK_PLACEHOLDER
+   git clone https://github.com/udaykumar0515/ai-text-simplifier-transformers.git
    cd ai-text-simplifier-transformers
    ```
 
@@ -29,7 +34,7 @@ An AI-powered web application that transforms complex text into simple, easy-to-
    pip install -r requirements.txt
    ```
 
-## ▶️ How to Run
+## Usage
 
 Run the application locally:
 
@@ -37,20 +42,35 @@ Run the application locally:
 streamlit run app.py
 ```
 
-## 📝 Example
+The application will open in your default browser at `http://localhost:8501`
+
+## Example
 
 **Input:**
-> "The utilization of utilizing a complex vocabulary is often considered an indication of intelligence."
+> The patient is currently experiencing an acute exacerbation of chronic obstructive pulmonary disease, characterized by significant dyspnea, increased sputum production, and coughing.
 
 **Output:**
-> "A complex vocabulary is often considered an indication of intelligence."
+> The patient has a worsening of chronic lung disease with breathing difficulties, increased mucus, and coughing.
 
-## 🔮 Future Scope
+## Project Structure
 
-- Support for multiple languages.
-- Adjustable simplification levels (e.g., child, teen, adult).
-- File upload support (PDF/Docx).
-- API endpoint for external integration.
+```
+.
+├── app.py              # Streamlit frontend
+├── simplifier.py       # Text simplification backend
+├── requirements.txt    # Python dependencies
+├── .gitignore         # Git ignore rules
+└── README.md          # Documentation
+```
 
----
-Built with ❤️ using Transformers & Streamlit.
+## Requirements
+
+- Python 3.8 or higher
+- streamlit
+- transformers
+- torch
+- sentencepiece
+
+## License
+
+This project is available for educational and research purposes.
