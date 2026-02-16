@@ -48,25 +48,23 @@ def simplify_text(text: str) -> str:
         # Let's assume frontend checks, but for safety:
         raise ValueError("Input text exceeds 1000 characters.")
 
-    try:
-        tokenizer, model = load_model()
-        
-        input_text = "simplify: " + text
-        inputs = tokenizer(input_text, return_tensors="pt", max_length=512, truncation=True)
-        
-        # Generation parameters as requested
-        outputs = model.generate(
-            **inputs, 
-            max_new_tokens=128,
-            num_beams=4,
-            early_stopping=True
-        )
-        
-        simplified_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        return simplified_text
+    # try-except block removed to allow proper error handling by caller
+    tokenizer, model = load_model()
     
-    except Exception as e:
-        return f"Error simplifying text: {str(e)}"
+    # Improved prompt as per audit feedback
+    input_text = "Rewrite the following text in simple English: " + text
+    inputs = tokenizer(input_text, return_tensors="pt", max_length=512, truncation=True)
+    
+    # Generation parameters as requested
+    outputs = model.generate(
+        **inputs, 
+        max_new_tokens=128,
+        num_beams=4,
+        early_stopping=True
+    )
+    
+    simplified_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    return simplified_text
 
 if __name__ == "__main__":
     # Temporary test block (Step 3)
